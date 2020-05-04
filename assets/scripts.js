@@ -1,6 +1,25 @@
+const colorToHex = color => Number('0x' + color.substring(1));
+const hexToColor = hex => {
+  const c = Number(Math.floor(hex)).toString(16);
+  return '#' + ("000000".substr( 0, 6 - c.length ) + c.toUpperCase());
+}
+
 class Bar {
   constructor(fillStyle) {
     this.fillStyle = fillStyle;
+  }
+
+  static gradient(firstStyle, lastStyle, numberOfBars) {
+    const firstStyleHex = colorToHex(firstStyle);
+    const lastStyleHex = colorToHex(lastStyle);
+    const colorDelta = (lastStyleHex - firstStyleHex) / (numberOfBars - 1);
+
+    console.log(hexToColor(firstStyleHex));
+
+    return Array.from({length: numberOfBars}, (_, i) => {
+      const color = hexToColor(firstStyleHex + (colorDelta * i));
+      return new Bar(color);
+    });
   }
 }
 
@@ -17,7 +36,6 @@ function render(flag) {
   const barHeight = canvas.height / flag.bars.length;
 
   flag.bars.forEach((bar, i) => {
-    console.log(bar);
     ctx.fillStyle = bar.fillStyle;
 
     const x1 = 0;
@@ -31,12 +49,8 @@ function render(flag) {
   });
 }
 
-const bars = [
-  new Bar('blue'),
-  new Bar('green'),
-  new Bar('purple'),
-  new Bar('grey')
-];
+const bars =
+  Bar.gradient('#a8e2b0', '#edc8ea', 6);
 const flag = new Flag(bars);
 render(flag);
 
