@@ -1,10 +1,4 @@
-# Web App Template
-
-The boilerplate for a basic web app
-
-- HTML file linking CSS/JS files
-- Material Design Components (v6)
-- Code of Conduct/MIT License
+# Lesbian Flag Generator
 
 ## Local setup
 
