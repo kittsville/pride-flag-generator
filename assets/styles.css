@@ -18,6 +18,11 @@ footer a:not(:hover) {
   color: grey;
 }
 
+#buttons {
+  text-align: center;
+}
+
 canvas {
   border: 1px solid grey;
+  margin: 1rem auto;
 }

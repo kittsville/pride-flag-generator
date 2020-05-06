@@ -52,6 +52,14 @@ class ColorTools {
 
     return firstGradient.concat(secondGradient.slice(1));
   }
+
+  static RandomPastel() {
+    return colr.fromHsl(
+      360 * Math.random(),
+      70,
+      80
+    );
+  }
 }
 
 class Bar {

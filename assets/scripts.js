@@ -18,10 +18,28 @@ function render(flag) {
   });
 }
 
-const bars =
-  Bar.twoPartGradient(colr.fromHex('#edc8ea'), colr.fromHex('#ffffff'), colr.fromHex('#a8e2b0'), 3);
-const flag = new Flag(bars);
-render(flag);
+document.getElementById('three-color-pastel').addEventListener('click', () => {
+  const bars = Bar.twoPartGradient(
+    ColorTools.RandomPastel(),
+    ColorTools.RandomPastel(),
+    ColorTools.RandomPastel(),
+    3
+  );
+  const flag = new Flag(bars);
+  render(flag);
+});
+
+document.getElementById('two-color-pastel').addEventListener('click', () => {
+  const bars = Bar.gradient(
+    ColorTools.RandomPastel(),
+    ColorTools.RandomPastel(),
+    5
+  );
+  const flag = new Flag(bars);
+  render(flag);
+});
+
+document.getElementById('two-color-pastel').click();
 
 // Initialises Material Design Components
 // See: https://github.com/material-components/material-components-web#javascript
