@@ -6,6 +6,11 @@ body {
   margin-top: 0;
 }
 
+.mdc-typography--headline1 {
+  text-align: center;
+  font-size: 5rem;
+}
+
 main {
   max-width: 1200px;
 }
