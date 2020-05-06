@@ -36,6 +36,18 @@ document.getElementById('two-color-pastel').addEventListener('click', () => {
   render(flag);
 });
 
+document.getElementById('symetrical-color-pastel').addEventListener('click', () => {
+  const [outerColor, innerColor] = ColorTools.RandomPastels(2);
+  const bars = Bar.twoPartGradient(
+    outerColor,
+    innerColor,
+    outerColor,
+    3
+  );
+  const flag = new Flag(bars);
+  render(flag);
+});
+
 document.getElementById('two-color-pastel').click();
 
 // Initialises Material Design Components
