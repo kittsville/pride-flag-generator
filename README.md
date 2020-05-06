@@ -1,4 +1,4 @@
-# Lesbian Flag Generator
+# Pride Flag Generator
 
 ## Local setup
 
