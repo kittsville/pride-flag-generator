@@ -53,12 +53,31 @@ class ColorTools {
     return firstGradient.concat(secondGradient.slice(1));
   }
 
-  static RandomPastel() {
-    return colr.fromHsl(
-      360 * Math.random(),
-      70,
-      80
-    );
+  static randomHue() {
+    return 360 * Math.random();
+  }
+
+  static RandomPastels(number) {
+    let pastels = [];
+    let attempts = 0;
+    const limit = number * 50;
+    const separation = 70;
+
+    do {
+      attempts++;
+
+      const hue = ColorTools.randomHue();
+
+      if (!pastels.some(el => Math.abs(hue - el) < separation)) {
+        pastels.push(hue);
+      }
+    } while (pastels.length < number && attempts <= limit)
+
+    if (attempts >= limit) {
+      console.log(`Gave up generating distinctive colours after ${attempts} attempts`);
+    }
+
+    return pastels.map(hue => colr.fromHsl(hue, 70, 80));
   }
 }
 

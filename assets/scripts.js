@@ -20,9 +20,7 @@ function render(flag) {
 
 document.getElementById('three-color-pastel').addEventListener('click', () => {
   const bars = Bar.twoPartGradient(
-    ColorTools.RandomPastel(),
-    ColorTools.RandomPastel(),
-    ColorTools.RandomPastel(),
+    ...ColorTools.RandomPastels(3),
     3
   );
   const flag = new Flag(bars);
@@ -31,8 +29,7 @@ document.getElementById('three-color-pastel').addEventListener('click', () => {
 
 document.getElementById('two-color-pastel').addEventListener('click', () => {
   const bars = Bar.gradient(
-    ColorTools.RandomPastel(),
-    ColorTools.RandomPastel(),
+    ...ColorTools.RandomPastels(2),
     5
   );
   const flag = new Flag(bars);
