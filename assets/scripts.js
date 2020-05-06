@@ -37,7 +37,11 @@ document.getElementById('two-color-pastel').addEventListener('click', () => {
 });
 
 document.getElementById('symetrical-color-pastel').addEventListener('click', () => {
-  const [outerColor, innerColor] = ColorTools.RandomPastels(2);
+  const colors = ColorTools.RandomPastels(2);
+
+  const outerColor = colors[0]
+  const innerColor = Math.random() >= .8 ? colr.fromGrayscale(255) : colors[1];
+
   const bars = Bar.twoPartGradient(
     outerColor,
     innerColor,
