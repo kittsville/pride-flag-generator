@@ -5,7 +5,7 @@ function render(flag) {
   const barHeight = canvas.height / flag.bars.length;
 
   flag.bars.forEach((bar, i) => {
-    ctx.fillStyle = bar.color.toString();
+    ctx.fillStyle = bar.color.toHex();
 
     const x1 = 0;
     const x2 = canvas.width;
@@ -19,7 +19,7 @@ function render(flag) {
 }
 
 const bars =
-  Bar.twoPartGradient(new Color('#edc8ea'), new Color('#ffffff'), new Color('#a8e2b0'), 3);
+  Bar.twoPartGradient(colr.fromHex('#edc8ea'), colr.fromHex('#ffffff'), colr.fromHex('#a8e2b0'), 3);
 const flag = new Flag(bars);
 render(flag);
 
