@@ -61,12 +61,7 @@ document.getElementById('two-color-pastel').addEventListener('click', () => {
     ...ColorTools.randomPastels(2),
     5
   );
-  const arrows = [
-    new Bar(colr.fromHex("#ffffff")),
-    new Bar(colr.fromHex("#FF0000")),
-    new Bar(colr.fromHex("#0000FF"))
-  ];
-  const flag = new Flag(bars, arrows);
+  const flag = new Flag(bars);
   render(flag);
 });
 
