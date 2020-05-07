@@ -16,6 +16,35 @@ function render(flag) {
 
     ctx.fillRect(x1, y1, x2, y2);
   });
+
+  const arrowWidth = Math.sqrt((barHeight / 2) ** 2 + (barHeight / 2) ** 2);
+  const arrowStart = (flag.arrows.length - 1) * (-arrowWidth/2)
+
+  console.log(arrowStart);
+
+  flag.arrows.forEach((arrow, i) => {
+    ctx.fillStyle = arrow.color.toHex();
+
+    const arrowOffset = arrowStart + (arrowWidth * (flag.arrows.length - 1 - i))
+
+    console.log(arrowOffset);
+
+    const x1 = arrowOffset;
+    const y1 = 0;
+
+    const x2 = arrowOffset + (canvas.height / 2)
+    const y2 = canvas.height / 2;
+
+    const x3 = arrowOffset;
+    const y3 = canvas.height;
+
+    ctx.beginPath();
+    ctx.moveTo(x1, y1);
+    ctx.lineTo(x2, y2);
+    ctx.lineTo(x3, y3);
+    ctx.fill();
+  });
+
 }
 
 document.getElementById('three-color-pastel').addEventListener('click', () => {
@@ -32,7 +61,12 @@ document.getElementById('two-color-pastel').addEventListener('click', () => {
     ...ColorTools.randomPastels(2),
     5
   );
-  const flag = new Flag(bars);
+  const arrows = [
+    new Bar(colr.fromHex("#ffffff")),
+    new Bar(colr.fromHex("#FF0000")),
+    new Bar(colr.fromHex("#0000FF"))
+  ];
+  const flag = new Flag(bars, arrows);
   render(flag);
 });
 

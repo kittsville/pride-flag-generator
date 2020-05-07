@@ -99,7 +99,8 @@ class Bar {
 }
 
 class Flag {
-  constructor(bars) {
-    this.bars = bars;
+  constructor(bars, arrows) {
+    this.bars = bars === undefined ? [] : bars;
+    this.arrows = arrows === undefined ? [] : arrows;
   }
 }
