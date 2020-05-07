@@ -57,6 +57,10 @@ class ColorTools {
     return 360 * Math.random();
   }
 
+  static hueDistance(hue1, hue2) {
+    return Math.min(Math.abs(hue1 - hue2), (Math.min(hue1, hue2) + 360) - Math.max(hue1, hue2))
+  }
+
   static randomPastels(number) {
     let pastels = [];
     let attempts = 0;
@@ -68,7 +72,7 @@ class ColorTools {
 
       const hue = ColorTools.randomHue();
 
-      if (!pastels.some(el => Math.abs(hue - el) < separation)) {
+      if (!pastels.some(el => ColorTools.hueDistance(hue, el) <= separation)) {
         pastels.push(hue);
       }
     } while (pastels.length < number && attempts <= limit)
