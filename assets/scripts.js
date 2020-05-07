@@ -29,14 +29,14 @@ function render(flag) {
 
     console.log(arrowOffset);
 
-    const x1 = arrowOffset;
-    const y1 = 0;
+    const x1 = 0;
+    const y1 = -arrowOffset;
 
     const x2 = arrowOffset + (canvas.height / 2)
     const y2 = canvas.height / 2;
 
-    const x3 = arrowOffset;
-    const y3 = canvas.height;
+    const x3 = 0;
+    const y3 = canvas.height - (arrowOffset * -1);
 
     ctx.beginPath();
     ctx.moveTo(x1, y1);
