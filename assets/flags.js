@@ -8,11 +8,11 @@ document.getElementById('progress-pride').addEventListener('click', () => {
     new Bar(colr.fromHex("#76008A"))
   ]
   const arrows = [
-    new Bar(colr.fromHex("#000100")),
-    new Bar(colr.fromHex("#603814")),
-    new Bar(colr.fromHex("#75D8ED")),
-    new Bar(colr.fromHex("#FFAFC9")),
-    new Bar(colr.fromHex("#FCFAF6"))
+    new Shape(colr.fromHex("#000100")),
+    new Shape(colr.fromHex("#603814")),
+    new Shape(colr.fromHex("#75D8ED")),
+    new Shape(colr.fromHex("#FFAFC9")),
+    new Shape(colr.fromHex("#FCFAF6"))
 
   ];
   const flag = new Flag(bars, arrows);

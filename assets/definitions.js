@@ -82,11 +82,13 @@ class ColorTools {
   }
 }
 
-class Bar {
+class Shape {
   constructor(color) {
     this.color = color;
   }
+}
 
+class Bar extends Shape {
   static gradient(firstColor, secondColor, numberOfBars) {
     return ColorTools.gradient(firstColor, secondColor, numberOfBars)
             .map(color => new Bar(color));
