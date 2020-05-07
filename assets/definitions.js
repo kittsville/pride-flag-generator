@@ -34,16 +34,13 @@ class ColorTools {
       throw `Gradients require at least two parts, [${numberOfParts}] given'`
     }
 
-    const firstColorRgb = firstColor.toRgbObject();
-    const secondColorRgb = secondColor.toRgbObject();
+    const firstColorHsl = firstColor.toRawHslObject();
+    const secondColorHsl = secondColor.toRawHslObject();
 
-    const colorDelta = new ColorDelta(
-      (secondColorRgb.r - firstColorRgb.r) / (numberOfParts - 1),
-      (secondColorRgb.g - firstColorRgb.g) / (numberOfParts - 1),
-      (secondColorRgb.b - firstColorRgb.b) / (numberOfParts - 1)
-    );
+    const scale = chroma.scale([firstColorHsl, secondColorHsl]).mode('lab');
+    const step = 1 / (numberOfParts - 1);
 
-    return Array.from({length: numberOfParts}, (_, i) => colorDelta.multiply(i).applyTo(firstColor));
+    return Array.from({length: numberOfParts}, (_, i) => colr.fromRgbArray(scale(step * i).rgb(false)));
   }
 
   static twoPartGradient(firstColor, secondColor, thirdColor, numberOfParts) {
