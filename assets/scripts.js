@@ -20,7 +20,7 @@ function render(flag) {
 
 document.getElementById('three-color-pastel').addEventListener('click', () => {
   const bars = Bar.twoPartGradient(
-    ...ColorTools.RandomPastels(3),
+    ...ColorTools.randomPastels(3),
     3
   );
   const flag = new Flag(bars);
@@ -29,7 +29,7 @@ document.getElementById('three-color-pastel').addEventListener('click', () => {
 
 document.getElementById('two-color-pastel').addEventListener('click', () => {
   const bars = Bar.gradient(
-    ...ColorTools.RandomPastels(2),
+    ...ColorTools.randomPastels(2),
     5
   );
   const flag = new Flag(bars);
@@ -37,7 +37,7 @@ document.getElementById('two-color-pastel').addEventListener('click', () => {
 });
 
 document.getElementById('symetrical-color-pastel').addEventListener('click', () => {
-  const colors = ColorTools.RandomPastels(2);
+  const colors = ColorTools.randomPastels(2);
 
   const outerColor = colors[0]
   const innerColor = Math.random() >= .8 ? colr.fromGrayscale(255) : colors[1];

@@ -57,7 +57,7 @@ class ColorTools {
     return 360 * Math.random();
   }
 
-  static RandomPastels(number) {
+  static randomPastels(number) {
     let pastels = [];
     let attempts = 0;
     const limit = number * 50;
