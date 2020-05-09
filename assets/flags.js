@@ -1,18 +1,18 @@
 document.getElementById('progress-pride').addEventListener('click', () => {
   const bars = [
-    new Bar(colr.fromHex("#D60706")),
-    new Bar(colr.fromHex("#EE9D00")),
-    new Bar(colr.fromHex("#E3FF00")),
-    new Bar(colr.fromHex("#06C000")),
-    new Bar(colr.fromHex("#001B98")),
-    new Bar(colr.fromHex("#76008A"))
-  ]
+    new Bar(colr.fromHex("#E40303")),
+    new Bar(colr.fromHex("#FF8C00")),
+    new Bar(colr.fromHex("#FFED00")),
+    new Bar(colr.fromHex("#008026")),
+    new Bar(colr.fromHex("#004DFF")),
+    new Bar(colr.fromHex("#750787"))
+  ];
   const arrows = [
-    new Shape(colr.fromHex("#000100")),
-    new Shape(colr.fromHex("#603814")),
-    new Shape(colr.fromHex("#75D8ED")),
-    new Shape(colr.fromHex("#FFAFC9")),
-    new Shape(colr.fromHex("#FCFAF6"))
+    new Shape(colr.fromHex("#000")),
+    new Shape(colr.fromHex("#784F17")),
+    new Shape(colr.fromHex("#5BCEFA")),
+    new Shape(colr.fromHex("#F5A9B8")),
+    new Shape(colr.fromHex("#FFF"))
 
   ];
   const flag = new Flag(bars, arrows);
