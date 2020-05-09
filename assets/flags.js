@@ -1,7 +1,6 @@
 document.getElementById('original-pride').addEventListener('click', () => {
   const bars = [
     new Bar("#ff69b4"),
-    new Bar("f00"),
     new Bar("#ff8e00"),
     new Bar("#ff0"),
     new Bar("#008e00"),
