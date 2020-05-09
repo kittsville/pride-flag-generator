@@ -2,20 +2,22 @@ const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
 function render(flag) {
-  const barHeight = canvas.height / flag.bars.length;
+  const barHeight = canvas.height / flag.bars.map(bar => bar.height).reduce((a, b) => a + b);
 
-  flag.bars.forEach((bar, i) => {
+  flag.bars.reduce((i, bar) => {
     ctx.fillStyle = bar.color.toHex();
 
     const x1 = 0;
     const x2 = canvas.width;
     const y1 = barHeight * i;
-    const y2 = y1 + barHeight;
+    const y2 = y1 + (barHeight * bar.height);
 
     console.log(`Filling bar with ${ctx.fillStyle} at ${x1}, ${y1}, ${x2}, ${y2}`);
 
     ctx.fillRect(x1, y1, x2, y2);
-  });
+
+    return i + bar.height;
+  }, 0);
 
   const arrowWidth = Math.sqrt((barHeight / 2) ** 2 + (barHeight / 2) ** 2);
   const arrowStart = (flag.arrows.length - 1) * (-arrowWidth/2)

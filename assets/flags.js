@@ -43,3 +43,16 @@ document.getElementById('progress-pride').addEventListener('click', () => {
   ];
   render(new Flag(bars, arrows));
 });
+
+document.getElementById('demi-pride').addEventListener('click', () => {
+  const bars = [
+    new Bar(colr.fromHex("#FFF"), 3),
+    new Bar(colr.fromHex("#6E0070"), 1),
+    new Bar(colr.fromHex("#D2D2D2"), 3)
+  ];
+  const arrows = [
+    new Shape(colr.fromHex("#000"))
+
+  ];
+  render(new Flag(bars, arrows));
+});

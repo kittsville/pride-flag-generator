@@ -89,6 +89,11 @@ class Shape {
 }
 
 class Bar extends Shape {
+  constructor(color, height) {
+    super(color);
+    this.height = height === undefined ? 1 : height;
+  }
+
   static gradient(firstColor, secondColor, numberOfBars) {
     return ColorTools.gradient(firstColor, secondColor, numberOfBars)
             .map(color => new Bar(color));
