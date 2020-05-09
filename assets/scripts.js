@@ -1,7 +1,11 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
+const canvasWidth = 1080;
 
 function render(flag) {
+  canvas.width  = canvasWidth;
+  canvas.height = (canvasWidth / Math.max(...flag.ratio)) * Math.min(...flag.ratio);
+
   const barHeight = canvas.height / flag.bars.map(bar => bar.height).reduce((a, b) => a + b);
 
   flag.bars.reduce((i, bar) => {
@@ -54,7 +58,7 @@ document.getElementById('three-color-pastel').addEventListener('click', () => {
     ...ColorTools.randomPastels(3),
     3
   );
-  const flag = new Flag(bars);
+  const flag = new Flag([3,5], bars);
   render(flag);
 });
 
@@ -63,7 +67,7 @@ document.getElementById('two-color-pastel').addEventListener('click', () => {
     ...ColorTools.randomPastels(2),
     5
   );
-  const flag = new Flag(bars);
+  const flag = new Flag([3,5], bars);
   render(flag);
 });
 
@@ -79,7 +83,7 @@ document.getElementById('symetrical-color-pastel').addEventListener('click', () 
     outerColor,
     3
   );
-  const flag = new Flag(bars);
+  const flag = new Flag([3,5], bars);
   render(flag);
 });
 

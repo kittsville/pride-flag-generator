@@ -106,7 +106,8 @@ class Bar extends Shape {
 }
 
 class Flag {
-  constructor(bars, arrows) {
+  constructor(ratio, bars, arrows) {
+    this.ratio = ratio;
     this.bars = bars === undefined ? [] : bars;
     this.arrows = arrows === undefined ? [] : arrows;
   }
