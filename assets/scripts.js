@@ -2,7 +2,9 @@ const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 const canvasWidth = 1080;
 
-function render(flag) {
+function renderFlag(flag) {
+  console.log("Flag data:")
+  console.log(JSON.stringify(flag));
   canvas.width  = canvasWidth;
   canvas.height = (canvasWidth / Math.max(...flag.ratio)) * Math.min(...flag.ratio);
 
@@ -15,8 +17,6 @@ function render(flag) {
     const x2 = canvas.width;
     const y1 = barHeight * i;
     const y2 = y1 + (barHeight * bar.height);
-
-    console.log(`Filling bar with ${ctx.fillStyle} at ${x1}, ${y1}, ${x2}, ${y2}`);
 
     ctx.fillRect(x1, y1, x2, y2);
 
@@ -55,7 +55,7 @@ document.getElementById('three-color-pastel').addEventListener('click', () => {
     3
   );
   const flag = new Flag([3,5], bars);
-  render(flag);
+  renderFlag(flag);
 });
 
 document.getElementById('two-color-pastel').addEventListener('click', () => {
@@ -64,7 +64,7 @@ document.getElementById('two-color-pastel').addEventListener('click', () => {
     5
   );
   const flag = new Flag([3,5], bars);
-  render(flag);
+  renderFlag(flag);
 });
 
 document.getElementById('symetrical-color-pastel').addEventListener('click', () => {
@@ -80,7 +80,7 @@ document.getElementById('symetrical-color-pastel').addEventListener('click', () 
     3
   );
   const flag = new Flag([3,5], bars);
-  render(flag);
+  renderFlag(flag);
 });
 
 document.getElementById('two-color-pastel').click();

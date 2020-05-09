@@ -9,7 +9,7 @@ document.getElementById('original-pride').addEventListener('click', () => {
     new Bar("#400098"),
     new Bar("#8e008e")
   ];
-  render(new Flag([3,2], bars));
+  renderFlag(new Flag([3,2], bars));
 });
 
 document.getElementById('pride').addEventListener('click', () => {
@@ -21,7 +21,7 @@ document.getElementById('pride').addEventListener('click', () => {
     new Bar("#004DFF"),
     new Bar("#750787")
   ];
-  render(new Flag([3,5], bars));
+  renderFlag(new Flag([3,5], bars));
 });
 
 document.getElementById('progress-pride').addEventListener('click', () => {
@@ -41,7 +41,7 @@ document.getElementById('progress-pride').addEventListener('click', () => {
     new Shape("#FFF")
 
   ];
-  render(new Flag([3,5], bars, arrows));
+  renderFlag(new Flag([3,5], bars, arrows));
 });
 
 document.getElementById('demi-pride').addEventListener('click', () => {
@@ -54,7 +54,7 @@ document.getElementById('demi-pride').addEventListener('click', () => {
     new Shape("#000")
 
   ];
-  render(new Flag([3,5], bars, arrows));
+  renderFlag(new Flag([3,5], bars, arrows));
 });
 
 document.getElementById('bi-pride').addEventListener('click', () => {
@@ -63,5 +63,5 @@ document.getElementById('bi-pride').addEventListener('click', () => {
     new Bar("#9b4f96", 1),
     new Bar("#d60270", 2)
   ];
-  render(new Flag([3,5], bars));
+  renderFlag(new Flag([3,5], bars));
 });
