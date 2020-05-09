@@ -1,3 +1,16 @@
+document.getElementById('pride').addEventListener('click', () => {
+  const bars = [
+    new Bar(colr.fromHex("#E40303")),
+    new Bar(colr.fromHex("#FF8C00")),
+    new Bar(colr.fromHex("#FFED00")),
+    new Bar(colr.fromHex("#008026")),
+    new Bar(colr.fromHex("#004DFF")),
+    new Bar(colr.fromHex("#750787"))
+  ];
+  const flag = new Flag(bars);
+  render(flag);
+});
+
 document.getElementById('progress-pride').addEventListener('click', () => {
   const bars = [
     new Bar(colr.fromHex("#E40303")),
