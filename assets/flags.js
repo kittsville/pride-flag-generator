@@ -56,3 +56,12 @@ document.getElementById('demi-pride').addEventListener('click', () => {
   ];
   render(new Flag(bars, arrows));
 });
+
+document.getElementById('bi-pride').addEventListener('click', () => {
+  const bars = [
+    new Bar(colr.fromHex("#0038a8"), 2),
+    new Bar(colr.fromHex("#9b4f96"), 1),
+    new Bar(colr.fromHex("#d60270"), 2)
+  ];
+  render(new Flag(bars));
+});
