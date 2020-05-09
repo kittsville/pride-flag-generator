@@ -9,7 +9,7 @@ function render(flag) {
   const barHeight = canvas.height / flag.bars.map(bar => bar.height).reduce((a, b) => a + b);
 
   flag.bars.reduce((i, bar) => {
-    ctx.fillStyle = bar.color.toHex();
+    ctx.fillStyle = bar.color;
 
     const x1 = 0;
     const x2 = canvas.width;
@@ -24,16 +24,12 @@ function render(flag) {
   }, 0);
 
   const arrowWidth = Math.sqrt((barHeight / 2) ** 2 + (barHeight / 2) ** 2);
-  const arrowStart = (flag.arrows.length - 1) * (-arrowWidth/2)
-
-  console.log(arrowStart);
+  const arrowStart = (flag.arrows.length - 1) * (-arrowWidth / 2);
 
   flag.arrows.forEach((arrow, i) => {
-    ctx.fillStyle = arrow.color.toHex();
+    ctx.fillStyle = arrow.color;
 
-    const arrowOffset = arrowStart + (arrowWidth * (flag.arrows.length - 1 - i))
-
-    console.log(arrowOffset);
+    const arrowOffset = arrowStart + (arrowWidth * (flag.arrows.length - 1 - i));
 
     const x1 = 0;
     const y1 = -arrowOffset;

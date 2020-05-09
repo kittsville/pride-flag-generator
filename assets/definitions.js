@@ -1,32 +1,6 @@
-class ColorDelta {
-  constructor(red, green, blue) {
-    this.red = red;
-    this.green = green;
-    this.blue = blue;
-  }
-
-  multiply(number) {
-    return new ColorDelta(
-      this.red * number,
-      this.green * number,
-      this.blue * number
-    );
-  }
-
-  applyTo(color) {
-    const rgbColor = color.toRgbObject();
-
-    return colr.fromRgb(
-      Math.max(0, Math.min(255, rgbColor.r + this.red)),
-      Math.max(0, Math.min(255, rgbColor.g + this.green)),
-      Math.max(0, Math.min(255, rgbColor.b + this.blue))
-    );
-  }
-}
-
 class ColorTools {
   static log(color) {
-    console.log('%c                       ', `background: ${color.toHex()}`);
+    console.log('%c                       ', `background: ${color}`);
   }
 
   static gradient(firstColor, secondColor, numberOfParts) {
@@ -34,13 +8,10 @@ class ColorTools {
       throw `Gradients require at least two parts, [${numberOfParts}] given'`
     }
 
-    const firstColorHsl = firstColor.toRawHslObject();
-    const secondColorHsl = secondColor.toRawHslObject();
-
-    const scale = chroma.scale([firstColorHsl, secondColorHsl]).mode('lab');
+    const scale = chroma.scale([firstColor, secondColor]).mode('lab');
     const step = 1 / (numberOfParts - 1);
 
-    return Array.from({length: numberOfParts}, (_, i) => colr.fromRgbArray(scale(step * i).rgb(false)));
+    return Array.from({length: numberOfParts}, (_, i) => scale(step * i).hex());
   }
 
   static twoPartGradient(firstColor, secondColor, thirdColor, numberOfParts) {
@@ -78,7 +49,7 @@ class ColorTools {
       console.log(`Gave up generating distinctive colours after ${attempts} attempts`);
     }
 
-    return pastels.map(hue => colr.fromHsl(hue, 70, 80));
+    return pastels.map(hue => `hsl(${hue},70%,80%)`);
   }
 }
 
