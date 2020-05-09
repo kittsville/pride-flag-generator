@@ -21,8 +21,7 @@ document.getElementById('pride').addEventListener('click', () => {
     new Bar(colr.fromHex("#004DFF")),
     new Bar(colr.fromHex("#750787"))
   ];
-  const flag = new Flag(bars);
-  render(flag);
+  render(new Flag(bars));
 });
 
 document.getElementById('progress-pride').addEventListener('click', () => {
@@ -42,6 +41,5 @@ document.getElementById('progress-pride').addEventListener('click', () => {
     new Shape(colr.fromHex("#FFF"))
 
   ];
-  const flag = new Flag(bars, arrows);
-  render(flag);
+  render(new Flag(bars, arrows));
 });
