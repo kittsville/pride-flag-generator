@@ -5,6 +5,7 @@ const canvasWidth = 1080;
 function renderFlag(flag) {
   console.log("Flag data:")
   console.log(JSON.stringify(flag));
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
   canvas.width  = canvasWidth;
   canvas.height = (canvasWidth / Math.max(...flag.ratio)) * Math.min(...flag.ratio);
 
