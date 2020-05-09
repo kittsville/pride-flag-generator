@@ -1,3 +1,17 @@
+document.getElementById('original-pride').addEventListener('click', () => {
+  const bars = [
+    new Bar(colr.fromHex("#ff69b4")),
+    new Bar(colr.fromHex("f00")),
+    new Bar(colr.fromHex("#ff8e00")),
+    new Bar(colr.fromHex("#ff0")),
+    new Bar(colr.fromHex("#008e00")),
+    new Bar(colr.fromHex("#00c0c0")),
+    new Bar(colr.fromHex("#400098")),
+    new Bar(colr.fromHex("#8e008e"))
+  ];
+  render(new Flag(bars));
+});
+
 document.getElementById('pride').addEventListener('click', () => {
   const bars = [
     new Bar(colr.fromHex("#E40303")),
