@@ -16,7 +16,6 @@ function renderFlag(flag) {
     canvas.height = canvasHeight;
   }
 
-
   const barHeight = canvas.height / flag.bars.map(bar => bar.height).reduce((a, b) => a + b);
 
   flag.bars.reduce((i, bar) => {
