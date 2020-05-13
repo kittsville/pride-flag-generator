@@ -79,7 +79,7 @@ document.getElementById('symetrical-color-pastel').addEventListener('click', () 
   const colors = ColorTools.randomPastels(2);
 
   const outerColor = colors[0]
-  const innerColor = Math.random() >= .8 ? colr.fromGrayscale(255) : colors[1];
+  const innerColor = Math.random() >= .8 ? '#FFF' : colors[1];
 
   const bars = Bar.twoPartGradient(
     outerColor,
