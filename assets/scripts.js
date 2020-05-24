@@ -4,6 +4,9 @@ const canvasWidth = 1080;
 var currentFlag;
 
 function renderFlag(flag) {
+  console.log("Flag data:")
+  console.log(JSON.stringify(flag));
+  
   currentFlag = flag;
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
