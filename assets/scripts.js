@@ -1,10 +1,10 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 const canvasWidth = 1080;
+var currentFlag;
 
 function renderFlag(flag) {
-  console.log("Flag data:")
-  console.log(JSON.stringify(flag));
+  currentFlag = flag;
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   if (canvas.width !== canvasWidth) {
@@ -91,7 +91,17 @@ document.getElementById('symetrical-color-pastel').addEventListener('click', () 
   renderFlag(flag);
 });
 
-document.getElementById('two-color-pastel').click();
+document.getElementById('link-to-flag').addEventListener('click', () => {
+  const linkToFlag = `${window.location.protocol}//${window.location.host}?flag=${currentFlag.toCompactString()}`;
+  navigator.clipboard.writeText(linkToFlag);
+});
+
+const searchParams = new URLSearchParams(window.location.search);
+if (searchParams.has('flag')) {
+  renderFlag(Flag.fromCompactString(searchParams.get('flag')));
+} else {
+  document.getElementById('two-color-pastel').click();
+}
 
 // Initialises Material Design Components
 // See: https://github.com/material-components/material-components-web#javascript

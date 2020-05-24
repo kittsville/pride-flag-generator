@@ -57,12 +57,37 @@ class Shape {
   constructor(color) {
     this.color = color;
   }
+
+  toCompactString() {
+    return this.color;
+  }
+
+  static fromCompactString(string) {
+    return new Shape(string);
+  }
 }
 
 class Bar extends Shape {
   constructor(color, height) {
     super(color);
     this.height = height === undefined ? 1 : height;
+  }
+
+  toCompactString() {
+    return this.height === 1 ? this.color : `${this.color}-${this.height}`;
+  }
+
+  static fromCompactString(string) {
+    const barParts = string.split('-');
+    if (barParts.length === 2) {
+      const color = barParts[0];
+      const height = parseInt(barParts[1]);
+
+      return new Bar(color, height);
+    } else {
+      return new Bar(string);
+    }
+    return new Bar(...string.split('-'));
   }
 
   static gradient(firstColor, secondColor, numberOfBars) {
@@ -77,9 +102,48 @@ class Bar extends Shape {
 }
 
 class Flag {
+  static getVersion() {
+    return "1";
+  }
   constructor(ratio, bars, arrows) {
     this.ratio = ratio;
     this.bars = bars === undefined ? [] : bars;
     this.arrows = arrows === undefined ? [] : arrows;
+  }
+
+  toCompactString() {
+    const stringifiedBars = this.bars.map(bar => bar.toCompactString()).join(',');
+    let flagParts = [Flag.getVersion(), ...this.ratio, stringifiedBars];
+
+    if (this.arrows.length > 0) {
+      const stringifiedArrows = this.arrows.map(arrow => arrow.toCompactString()).join(',');
+      flagParts.push(stringifiedArrows);
+    }
+
+    const stringifiedFlag = flagParts.join(':');
+    return btoa(stringifiedFlag);
+  }
+
+  static fromCompactString(string) {
+    const stringifiedFlagParts = atob(string).split(':');
+    const givenFlagVersion = stringifiedFlagParts[0];
+    const expectedFlagVersion = Flag.getVersion();
+
+    if (givenFlagVersion !== expectedFlagVersion) {
+      throw `Can't decode flag of version ${givenFlagVersion} with decoder of version ${expectedFlagVersion}`;
+    }
+
+    const stringifiedBars = stringifiedFlagParts[3].split(',');
+    const bars = stringifiedBars.map(Bar.fromCompactString);
+
+    let arrows = [];
+    if (stringifiedFlagParts.length >= 5) {
+      const stringifiedArrows = stringifiedFlagParts[4].split(',');
+      arrows = stringifiedArrows.map(Shape.fromCompactString);
+    }
+
+    const ratio = [stringifiedFlagParts[1], stringifiedFlagParts[2]];
+
+    return new Flag(ratio, bars, arrows);
   }
 }
