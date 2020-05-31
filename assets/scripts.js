@@ -58,6 +58,22 @@ function renderFlag(flag) {
     ctx.fill();
   });
 
+  const circleRadius = canvas.width / 7.35;
+  const additionalRadius = canvas.width / 18;
+
+  flag.circles.forEach((circle, i) => {
+    ctx.fillStyle = circle.color;
+
+    const inverseI = flag.circles.length - 1 - i;
+
+    const x = canvas.width / 2;
+    const y = canvas.height / 2;
+
+    ctx.beginPath();
+    ctx.arc(x, y, circleRadius + (additionalRadius * inverseI), 0, 2 * Math.PI, false);
+    ctx.fill();
+  });
+
 }
 
 document.getElementById('three-color-pastel').addEventListener('click', () => {

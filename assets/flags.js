@@ -65,3 +65,14 @@ document.getElementById('bi-pride').addEventListener('click', () => {
   ];
   renderFlag(new Flag([3,5], bars));
 });
+
+document.getElementById('intersex-pride').addEventListener('click', () => {
+  const bars = [
+    new Bar("#FFD800")
+  ];
+  const circles = [
+    new Shape("#7902aa"),
+    new Shape("#FFD800")
+  ];
+  renderFlag(new Flag([3,2], bars, undefined, circles));
+});

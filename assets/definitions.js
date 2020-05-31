@@ -105,10 +105,11 @@ class Flag {
   static getVersion() {
     return "1";
   }
-  constructor(ratio, bars, arrows) {
+  constructor(ratio, bars, arrows, circles) {
     this.ratio = ratio;
     this.bars = bars === undefined ? [] : bars;
     this.arrows = arrows === undefined ? [] : arrows;
+    this.circles = circles === undefined ? [] : circles;
   }
 
   toCompactString() {
