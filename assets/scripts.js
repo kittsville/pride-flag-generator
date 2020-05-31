@@ -6,7 +6,7 @@ var currentFlag;
 function renderFlag(flag) {
   console.log("Flag data:")
   console.log(JSON.stringify(flag));
-  
+
   currentFlag = flag;
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -105,6 +105,13 @@ if (searchParams.has('flag')) {
 } else {
   document.getElementById('two-color-pastel').click();
 }
+
+document.getElementById('download-flag').addEventListener('click', () => {
+  const link = document.createElement('a');
+  link.download = 'pride-flag.png';
+  link.href = canvas.toDataURL();
+  link.click();
+});
 
 // Initialises Material Design Components
 // See: https://github.com/material-components/material-components-web#javascript
