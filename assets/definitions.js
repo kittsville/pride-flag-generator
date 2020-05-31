@@ -54,8 +54,9 @@ class ColorTools {
 }
 
 class Shape {
-  constructor(color) {
+  constructor(color, clipFlag) {
     this.color = color;
+    this.clipFlag = clipFlag;
   }
 
   toCompactString() {

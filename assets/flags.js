@@ -34,12 +34,48 @@ document.getElementById('progress-pride').addEventListener('click', () => {
     new Bar("#750787")
   ];
   const arrows = [
-    new Shape("#000"),
-    new Shape("#784F17"),
-    new Shape("#5BCEFA"),
-    new Shape("#F5A9B8"),
-    new Shape("#FFF")
-
+  new Shape("#FFF",
+    new Flag([3,5],[
+      new Bar("#fcf434"),
+      new Bar("#fcfcfc"),
+      new Bar("#9c5cd4"),
+      new Bar("#2c2c2c")
+    ])
+  ),
+    new Shape(
+      "#784F17",
+      new Flag([3,5], [
+        new Bar("#FFF", 3),
+        new Bar("#6E0070", 1),
+        new Bar("#D2D2D2", 3)
+      ])
+    ),
+    new Shape("#5BCEFA",
+      new Flag([3,5], [
+        new Bar("#5BCEFA"),
+        new Bar("#F5A9B8"),
+        new Bar("#FFF"),
+        new Bar("#F5A9B8"),
+        new Bar("#5BCEFA")
+      ])
+    ),
+    new Shape(
+      "#F5A9B8",
+      new Flag([3,5],[
+        new Bar("#000"),
+        new Bar("#a3a3a3"),
+        new Bar("#fff"),
+        new Bar("#810081")
+      ])
+    ),
+      new Shape(
+        "#000",
+        new Flag([3,5], [
+          new Bar("#0038a8", 2),
+          new Bar("#9b4f96", 1),
+          new Bar("#d60270", 2)
+        ])
+      )
   ];
   renderFlag(new Flag([3,5], bars, arrows));
 });

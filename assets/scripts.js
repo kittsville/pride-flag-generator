@@ -55,7 +55,12 @@ function renderFlag(flag) {
     ctx.moveTo(x1, y1);
     ctx.lineTo(x2, y2);
     ctx.lineTo(x3, y3);
-    ctx.fill();
+    if (!!arrow.clipFlag) {
+      ctx.clip();
+      renderFlag(arrow.clipFlag);
+    } else {
+      ctx.fill();
+    }
   });
 
   const circleRadius = canvas.width / 7.35;
