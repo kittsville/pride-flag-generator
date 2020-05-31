@@ -26,8 +26,8 @@ function renderFlag(flag) {
 
     const x1 = 0;
     const x2 = canvas.width;
-    const y1 = barHeight * i;
-    const y2 = y1 + (barHeight * bar.height);
+    const y1 = Math.floor(barHeight * i);
+    const y2 = Math.ceil(y1 + (barHeight * bar.height));
 
     ctx.fillRect(x1, y1, x2, y2);
 
