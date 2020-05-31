@@ -66,7 +66,11 @@ class Shape {
     return new Shape(string);
   }
 
-  static fromCompactStrings(string) {
+  static arrayToCompactString(array) {
+    return array.length > 0 ? array.map(shape => shape.toCompactString()).join(',') : '';
+  }
+
+  static arrayFromCompactString(string) {
     return string === '' ? [] : string.split(',').map(Shape.fromCompactString);
   }
 }
@@ -118,21 +122,13 @@ class Flag {
 
   toCompactString() {
     const stringifiedBars = this.bars.map(bar => bar.toCompactString()).join(',');
-    let flagParts = [Flag.getVersion(), ...this.ratio, stringifiedBars];
-
-    if (this.arrows.length > 0) {
-      const stringifiedArrows = this.arrows.map(arrow => arrow.toCompactString()).join(',');
-      flagParts.push(stringifiedArrows);
-    } else {
-      flagParts.push("");
-    }
-
-    if (this.circles.length > 0) {
-      const stringifiedCircles = this.circles.map(circle => circle.toCompactString()).join(',');
-      flagParts.push(stringifiedCircles);
-    } else {
-      flagParts.push("");
-    }
+    const flagParts = [
+      Flag.getVersion(),
+      ...this.ratio,
+      stringifiedBars,
+      Shape.arrayToCompactString(this.arrows),
+      Shape.arrayToCompactString(this.circles)
+    ];
 
     const stringifiedFlag = flagParts.join(':');
     return btoa(stringifiedFlag);
@@ -151,8 +147,8 @@ class Flag {
 
     const stringifiedBars = stringifiedFlagParts[3].split(',');
     const bars = stringifiedBars.map(Bar.fromCompactString);
-    const arrows = Shape.fromCompactStrings(stringifiedFlagParts[4]);
-    const circles = Shape.fromCompactStrings(stringifiedFlagParts[5]);
+    const arrows = Shape.arrayFromCompactString(stringifiedFlagParts[4]);
+    const circles = Shape.arrayFromCompactString(stringifiedFlagParts[5]);
     const ratio = [stringifiedFlagParts[1], stringifiedFlagParts[2]];
 
     return new Flag(ratio, bars, arrows, circles);
