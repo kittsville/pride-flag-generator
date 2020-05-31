@@ -137,7 +137,6 @@ class Flag {
   static fromCompactString(string) {
     const stringifiedFlagParts = atob(string).split(':');
 
-    console.log(stringifiedFlagParts);
     const givenFlagVersion = stringifiedFlagParts[0];
     const expectedFlagVersion = Flag.getVersion();
 
