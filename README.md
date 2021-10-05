@@ -1,5 +1,7 @@
 # Pride Flag Generator
 
+A website to procedurally generate an infinate number of pride flags, thus solving Lesbian flag discourse.
+
 ## Local setup
 
 1. Fork + clone the project (consider using [GitHub Desktop](https://desktop.github.com/) if you're unfamiliar with git)
